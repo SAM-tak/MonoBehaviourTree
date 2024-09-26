@@ -31,7 +31,7 @@ namespace MBT
         {
             get
             {
-                return (useConstant)? constantValue : this.GetVariable().Value;
+                return  useConstant ? constantValue : GetVariable() ? GetVariable().Value : default;
             }
             set
             {

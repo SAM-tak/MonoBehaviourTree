@@ -126,13 +126,13 @@ namespace MBT
         /// </summary>
         public bool isInvalid
         {
-            get { return (isConstant)? !isConstantValid : blackboard == null || string.IsNullOrEmpty(key); }
+            get { return isConstant ? !isConstantValid : blackboard == null || string.IsNullOrEmpty(key); }
         }
 
         protected void SetMode(VarRefMode mode)
         {
             this.mode = mode;
-            useConstant = (mode == VarRefMode.DisableConstant)? false : useConstant;
+            useConstant = mode != VarRefMode.DisableConstant && useConstant;
         }
     }
 }

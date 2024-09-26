@@ -30,7 +30,7 @@ namespace MBT
         {
             get
             {
-                return (useConstant)? constantValue : this.GetVariable().Value;
+                return useConstant ? constantValue : GetVariable() ? GetVariable().Value : null;
             }
             set
             {
@@ -40,7 +40,7 @@ namespace MBT
                 }
                 else
                 {
-                    this.GetVariable().Value = value;
+                    GetVariable().Value = value;
                 }
             }
         }
